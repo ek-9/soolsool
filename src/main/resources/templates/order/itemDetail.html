@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/board/reviewDetails.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/simple.css}">
+    <meta charset="UTF-8">
+    <title>sool</title>
+</head>
+<body>
+<div class="menu_line">
+    <div class="logo_bar">
+        <img id="logo" src="traveler_title.png" alt="" onclick="location.href='/'"/>
+    </div>
+</div>
+<div></div>
+<div id="space1"> </div>
+<div class="container">
+    <nav class="nav">
+        <h2>메뉴</h2>
+        <ul>
+            <li><a href="#">메뉴 1</a></li>
+            <li><a href="#">메뉴 2</a></li>
+            <li><a href="#">메뉴 3</a></li>
+            <li><a href="#">메뉴 4</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1 id="review_title" th:text="${item.productName}"></h1>
+        <p id="review_author">가격: <span th:text="${item.price}"></span>원</p>
+        <!--        <p>작성일: <span th:text="${#dates.format(board.createdAt, 'yyyy-MM-dd HH:mm')}"></span></p>-->
+        <div class="post-content">
+            <p id="review_content" th:text="${item.content}"></p>
+        </div>
+        <div class="button-container">
+            <button class = "b-container" onclick="location.href='/list'">목록</button>
+            <div th:if="${isAuthor}">
+                <button class = "b-container" th:onclick="'location.href=\'/boards/' + ${board.id} + '/edit\';'">수정</button>
+                <!--            <button class = "b-container" th:onclick="|location.href='@{/list/delete/${board.id}}'|">삭제</button>-->
+                <!--            <button class="btn" th:onclick="|location.href='@{view(uid=${data.uid})}'|">삭제</button>-->
+                <button class="b-container" th:onclick="'location.href=\'/list/delete/' + ${board.id} + '\';'">삭제</button>
+            </div>
+            <button th:onclick="|location.href='@{/orderDetails/{itemId}(itemId=${item.id})}'|">주문하기</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

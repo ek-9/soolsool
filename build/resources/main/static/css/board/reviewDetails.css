@@ -1,0 +1,66 @@
+#review_author {
+    text-align: right;
+}
+
+#review_title {
+    text-align: left;
+    background-color: beige;
+}
+#review_content {
+    height : 300px;
+}
+
+.button-container {
+    margin-top : 10px;
+    display: flex;
+    gap: 10px; /* 버튼들 간의 간격 */
+    justify-content: center; /* 가로 방향 중앙 정렬 */
+}
+
+.post-content {
+    min-height: 400px; /* 기본 높이 */
+    max-height: none; /* 길면 더 길어질 수 있음 */
+    overflow: visible; /* 글이 길어질 경우 overflow 설정 */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    line-height: 1.5;
+}
+
+.b-container {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width : 110px;
+}
+.button-container button:hover {
+    background-color: #45a049; /* 버튼 호버 시 색상 */
+}
+
+
+.board-table th, .board-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.board-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+}
+
+.board-table td {
+    text-align: center;
+}
+
+.board-table a {
+    text-decoration: none;
+    color: #333;
+}
+
+.board-table a:hover {
+    text-decoration: underline;
+    color: #007bff;
+}

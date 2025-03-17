@@ -1,0 +1,37 @@
+/* 기본 스타일 초기화 */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 배너 영역 스타일 */
+.menu_line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* 배너 높이 조정 */
+    background-color: #f4f4f4; /* 배경색 설정 */
+}
+
+/* 버튼 컨테이너 */
+.button-container {
+    display: flex;
+    gap: 20px; /* 버튼 간격 */
+}
+
+/* 버튼 스타일 */
+.menu_button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF; /* 파란색 버튼 */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu_button:hover {
+    background-color: #0056b3; /* hover 시 색상 */
+}

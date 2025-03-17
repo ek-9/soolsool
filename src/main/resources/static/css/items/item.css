@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 컨테이너 스타일 */
+.container {
+    display: flex;            /* Flexbox를 사용하여 좌우 나눔 */
+    height: 100vh;            /* 화면 전체 높이 */
+}
+
+/* 우측 컨텐츠 스타일 */
+.content {
+    flex-grow: 1;             /* 남은 공간을 차지 */
+    background-color: #fff;    /* 배경색 */
+    padding: 20px;            /* 안쪽 여백 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+}
+
+.product-card {
+    width: 22%; /* 한 줄에 4개 배치 (100% ÷ 4 - 간격 여유) */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-price {
+    color: #e60023;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.pagination a.current-page {
+    font-weight: bold;
+    color: #000;
+}
+
+/* 글쓰기 버튼 영역 */
+.write-btn {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-bottom: 10px; /* pagination과 간격 */
+}
+
+.write-btn button {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.write-btn button:hover {
+    background-color: #45a049;
+}

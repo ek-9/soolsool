@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>sool</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/simple.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/myTravel.css}">
+</head>
+
+<body>
+<div class="menu_line">
+    <div class="logo_bar">
+        <img id="logo" src="traveler_title.png" alt="" onclick="location.href='/'"/>
+    </div>
+</div>
+
+<div id="my_info">
+    <div class="profile_img">
+        <img class="profile" src="Q3_map.jpg">
+        <div class="go_profile">
+            <button class="edit" type="button" onclick="location.href='edit.html'">정보 수정</button>
+        </div>
+    </div>
+
+    <div id="introduce_myself" th:object="${user}">
+        <div class="intro" th:text="'이름 : ' + ${user.username}"></div>
+        <div class="intro" th:text="'팔로우 : ' + ${user.follows} +'   팔로워 : ' + ${user.followings}"></div>
+        <div class="intro" id="my_friend" th:text="${user.selfIntroduce}"></div>
+        <div class="intro" th:text="${user.balance}"></div>
+    </div>
+</div>
+<div id="space1"></div>
+</body>
+</html>

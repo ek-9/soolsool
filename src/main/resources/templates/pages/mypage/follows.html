@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/basic.css">
+    <title>팔로우 목록</title>
+    <style>
+        /* 간단한 스타일 예시 */
+        .follow-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .follow-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1>팔로우 목록</h1>
+<ul class="follow-list">
+    <!-- 팔로우한 사람들의 목록을 반복해서 출력 -->
+    <li th:each="person : ${followList}">
+        <span th:text="${person.name}">팔로우한 사람 이름</span>
+    </li>
+</ul>
+</body>
+</html>

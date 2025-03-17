@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>sool</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/userLogin.css}">
+</head>
+<body>
+<div id="login_title">
+    <img id="login_img" th:src="@{/images/Q3_map.jpg}" alt="로고" onclick="location.href='/'">
+</div>
+<div id="login_form">
+    <form th:action="@{/join}" th:object="${userDTO}" method="post">
+        <fieldset>
+            <legend>회원가입</legend>
+            <input type="hidden" th:name="${_csrf?.parameterName}" th:value="${_csrf?.token}" />
+            <table id="login_table">
+                <tr>
+                    <td>회원구분 : </td>
+                    <td>
+                        <div class="radio-group">
+                        <input type="radio" id = "INDIVISUAL" th:field="*{userType}" value="INDIVISUAL">개인
+                        <input type="radio" id = "CORPORATE" th:field="*{userType}" value="CORPERATE">기업
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>이메일 : </td>
+                    <td><input type="text" th:field="*{email}"></td>
+                </tr>
+                <tr>
+                    <td>비밀번호 : </td>
+                    <td><input type="password" th:field="*{password}"></td>
+                </tr>
+                <tr>
+                    <td>이름 : </td>
+                    <td><input type="text" th:field="*{username}"></td>
+                </tr>
+                <tr>
+                    <td>성별 : </td>
+                    <td>
+                        <div class="radio-group">
+                        <input type="radio" th:field="*{gender}" value="M">남자
+                        <input type="radio" th:field="*{gender}" value="W">여자
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>전화번호 : </td>
+                    <td><input type="text" th:field="*{number}"></td>
+                </tr>
+                <tr>
+                    <td>소개</td>
+                    <td><input type = "text" th:field="*{selfIntroduce}"></td>
+                </tr>
+            </table>
+            <button type = "submit" value="회원가입">회원가입</button>
+        </fieldset>
+    </form>
+</div>
+
+</body>
+</html>

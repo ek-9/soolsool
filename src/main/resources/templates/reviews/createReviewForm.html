@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/simple.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 작성</title>
+</head>
+<body>
+<div class="menu_line">
+    <div class="logo_bar">
+        <img id="logo" src="traveler_title.png" alt="" onclick="location.href='/'"/>
+    </div>
+</div>
+<div></div>
+<div id="space1"> </div>
+<div>
+    <h2>게시글 작성</h2>
+    <form action="/createBoard" th:object="${request}" method="post">
+        <fieldset>
+            <legend>게시글 작성</legend>
+            <table>
+                <tr>
+                    <td>제목</td>
+                    <td><input type = "text" name = "title"/></td>
+                </tr>
+                <tr>
+                    <td>내용</td>
+                    <td><textarea cols="40" rows = "10" name = "content"></textarea></td>
+                </tr>
+            </table>
+            <input type = "submit" value = "작성"/>
+        </fieldset>
+    </form>
+</div>
+
+</body>
+</html>

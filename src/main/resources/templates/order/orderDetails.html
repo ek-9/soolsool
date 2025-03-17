@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>주문하기</title>
+</head>
+<body>
+<h2>주문 페이지</h2>
+
+<p>제품명: <span th:text="${item.productName}"></span></p>
+<p>가격: <span th:text="${item.price}"></span> 원</p>
+<p>현재 잔액: <span th:text="${user.balance}"></span> 원</p>
+<!--<p>현재 충전 잔액: <span th:text="${user.balance}"></span> 원</p>-->
+
+<form th:action="@{/order}" th:object="${request}" method="post">
+    <input type="hidden" name="itemId" th:value="${itemId}">
+
+    <label for="quantity">수량:</label>
+    <input type="number" id="quantity" name="quantity" min="1" value="1">
+
+    <button type="submit">주문하기</button>
+</form>
+</body>
+</html>

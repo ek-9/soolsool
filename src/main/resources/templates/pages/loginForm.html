@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/userLogin.css}">
+    <meta charset="UTF-8">
+    <title>sool</title>
+</head>
+<body>
+<div id="login_title">
+    <img id="login_img" th:src="@{/images/Q3_map.jpg}" alt="" onclick="location.href='/'">
+</div>
+<div id="login_form">
+    <form action="/loginForm" method="post">
+        <fieldset>
+            <legend>로그인</legend>
+            <table id="login_table">
+                <tr>
+                    <td>이메일 : </td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td>비밀번호 : </td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <!-- <tr>
+                    <td colspan="2">잘못된 정보입니다.</td>
+                </tr> -->
+            </table>
+            <input type = "submit" value="로그인"/>
+        </fieldset>
+    </form>
+</div>
+
+</body>
+</html>

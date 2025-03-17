@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/items/item.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/simple.css}">
+    <meta charset="UTF-8">
+    <title>sool</title>
+</head>
+<body>
+<div class="menu_line">
+    <div class="logo_bar">
+        <img id="logo" src="traveler_title.png" alt="" onclick="location.href='/'"/>
+    </div>
+</div>
+<div></div>
+<div id="space1"> </div>
+
+<div class="container">
+    <nav class="nav">
+        <h2>메뉴</h2>
+        <ul>
+            <li><a th:href="@{/list}">후기 보기</a></li>
+            <li><a th:href="@{/recommend}">메뉴 2</a></li>
+            <!--            <li><a href="#">메뉴 3</a></li>-->
+            <!--            <li><a href="#">메뉴 4</a></li>-->
+        </ul>
+    </nav>
+    <div class="content">
+    <h1>상품 목록</h1>
+    <div th:each="item : ${paging}" class="product-card">
+<!--        <img th:src="${item.imageUrl}" alt="상품 이미지">-->
+<!--        <div class="product-title" th:text="${item.productName}"></div>-->
+        <a th:href="@{/itemDetails/{id}(id=${item.id})}" class="product-title" th:text="${item.productName}"></a>
+        <div class="product-price" th:text="${item.price} + '원'"></div>
+    </div>
+    <div class="write-btn"  th:if="${isCorporation == true}">
+        <button type="button" onclick="location.href='/createItem'">글쓰기</button>
+    </div>
+<div class="pagination">
+    <!-- 이전 버튼 -->
+    <span th:if="${paging.number >= 10}">
+        <a th:href="@{/itemList(page=${paging.number / 10 * 10 - 10})}">이전</a>
+    </span>
+
+    <!-- 페이지 번호 -->
+    <span th:each="page : ${#numbers.sequence((paging.number / 10) * 10, ((paging.number / 10) * 10) + 9)}">
+        <a th:if="${page < paging.totalPages && page != paging.number}"
+           th:href="@{/itemList(page=${page})}"
+           th:text="${page + 1}"></a>
+        <span th:if="${page == paging.number}"
+              th:text="${page + 1}"
+              class="current-page"></span>
+    </span>
+
+    <!-- 다음 버튼 -->
+    <span th:if="${paging.number / 10 * 10 + 10 < paging.totalPages}">
+        <a th:href="@{/itemList(page=${paging.number / 10 * 10 + 10})}">다음</a>
+    </span>
+</div>
+</div>
+</div>
+</body>
+</html>

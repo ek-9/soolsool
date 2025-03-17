@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>상품 등록</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        #form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        td {
+            padding: 10px 0;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div id="form-container">
+    <h2>게시글 작성</h2>
+    <form action="/createItem" th:object="${request}" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend style="display: none;">게시글 작성</legend>
+            <table>
+                <tr>
+                    <td>상품 사진</td>
+                    <td>
+                        <input type="file" name="image" accept="image/*">
+                    </td>
+                </tr>
+                <tr>
+                    <td>상품명</td>
+                    <td>
+                        <input type="text" name="productName" placeholder="상품명을 입력하세요">
+                    </td>
+                </tr>
+                <tr>
+                    <td>가격</td>
+                    <td>
+                        <input type="text" name="price" placeholder="가격 입력하세요">
+                    </td>
+                </tr>
+                <tr>
+                    <td>재고수량</td>
+                    <td>
+                        <input type="text" name="quantity" placeholder="보유한 재고수량을 입력하세요">
+                    </td>
+                </tr>
+                <tr>
+                    <td>내용</td>
+                    <td>
+                        <textarea name="content" cols="40" rows="10" placeholder="내용을 입력하세요"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="작성">
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

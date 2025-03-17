@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sool</title>
+    <link rel="stylesheet" th:href="@{/css/home1.css}">
+</head>
+
+<body>
+
+<div class="section" id="section1">
+    <div class="menu_line">
+        <form th:action="@{/logout}" method = "post">
+            <button th:if="${user != null}" class="menu_button" type = "submit">로그아웃</button>
+        </form>
+        <a th:if="${user != null}" th:text="'환영합니다, ' + ${user.getName()} + '님!'"></a>
+        <button th:if="${user != null}" class="menu_button" onclick="location.href='/myTravel'">마이페이지</button>
+        <button th:if="${user == null}" class="menu_button" onclick="location.href='/join'">회원가입</button>
+        <button th:if="${user == null}" class="menu_button" onclick="location.href='/loginForm'">로그인</button>
+    </div>
+    <div id="space"></div>
+    <div class="container">
+    <img class="img_main_title1" src="traveler_title.png" alt="로고"/>
+        <div id = "goButton">
+            <button th:action="@{/list}" class = "review-btn" onclick = "location.href='/list'">후기 보기</button>
+            <button th:action="@{/list}" class = "review-btn" onclick = "location.href='/itemList'">상품 구매</button>
+            <button th:action="@{/list}" class = "review-btn" onclick = "location.href='/recommend'">여행지 추천</button>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
